@@ -724,9 +724,15 @@ function App() {
           {/* Scattered Polaroids */}
           <motion.div 
             className="polaroid polaroid-1"
+            drag
+            dragMomentum={false}
+            dragElastic={0.1}
+            whileDrag={{ scale: 1.1, rotate: 0, zIndex: 100 }}
             initial={{ opacity: 0, scale: 0.5, rotate: -45 }}
             animate={{ opacity: 1, scale: 1, rotate: -15 }}
             transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
+            style={{ cursor: 'grab' }}
+            whileHover={{ scale: 1.05 }}
           >
             <div className="polaroid-photo" style={{ backgroundImage: `url(${photo1})` }}></div>
             <div className="polaroid-label">My Pumpkin</div>
@@ -734,9 +740,15 @@ function App() {
 
           <motion.div 
             className="polaroid polaroid-2"
+            drag
+            dragMomentum={false}
+            dragElastic={0.1}
+            whileDrag={{ scale: 1.1, rotate: 0, zIndex: 100 }}
             initial={{ opacity: 0, scale: 0.5, rotate: 45 }}
             animate={{ opacity: 1, scale: 1, rotate: 25 }}
             transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
+            style={{ cursor: 'grab' }}
+            whileHover={{ scale: 1.05 }}
           >
             <div className="polaroid-photo" style={{ backgroundImage: `url(${photo2})` }}></div>
             <div className="polaroid-label">My Booboo</div>
@@ -744,9 +756,15 @@ function App() {
 
           <motion.div 
             className="polaroid polaroid-3"
+            drag
+            dragMomentum={false}
+            dragElastic={0.1}
+            whileDrag={{ scale: 1.1, rotate: 0, zIndex: 100 }}
             initial={{ opacity: 0, scale: 0.5, rotate: -30 }}
             animate={{ opacity: 1, scale: 1, rotate: 12 }}
             transition={{ delay: 0.7, duration: 0.8, type: "spring" }}
+            style={{ cursor: 'grab' }}
+            whileHover={{ scale: 1.05 }}
           >
             <div className="polaroid-photo" style={{ backgroundImage: `url(${photo3})` }}></div>
             <div className="polaroid-label">My Bear</div>
@@ -754,9 +772,15 @@ function App() {
 
           <motion.div 
             className="polaroid polaroid-4"
+            drag
+            dragMomentum={false}
+            dragElastic={0.1}
+            whileDrag={{ scale: 1.1, rotate: 0, zIndex: 100 }}
             initial={{ opacity: 0, scale: 0.5, rotate: 60 }}
             animate={{ opacity: 1, scale: 1, rotate: -8 }}
             transition={{ delay: 0.9, duration: 0.8, type: "spring" }}
+            style={{ cursor: 'grab' }}
+            whileHover={{ scale: 1.05 }}
           >
             <div className="polaroid-photo" style={{ backgroundImage: `url(${photo4})` }}></div>
             <div className="polaroid-label">Meri pyari shimla mirch</div>
@@ -764,9 +788,15 @@ function App() {
 
           <motion.div 
             className="polaroid polaroid-5"
+            drag
+            dragMomentum={false}
+            dragElastic={0.1}
+            whileDrag={{ scale: 1.1, rotate: 0, zIndex: 100 }}
             initial={{ opacity: 0, scale: 0.5, rotate: -60 }}
             animate={{ opacity: 1, scale: 1, rotate: 18 }}
             transition={{ delay: 1.1, duration: 0.8, type: "spring" }}
+            style={{ cursor: 'grab' }}
+            whileHover={{ scale: 1.05 }}
           >
             <div className="polaroid-photo" style={{ backgroundImage: `url(${photo5})` }}></div>
             <div className="polaroid-label">Meri Chintu ki mummy</div>
