@@ -1,0 +1,1734 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Pacifico&family=Satisfy:wght@400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html {
+  overflow: hidden;
+  touch-action: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.stargazing-container {
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Multiple layers of stars for realistic stargazing */
+.star-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    /* Bright nearby stars */
+    radial-gradient(1px 1px at 10% 20%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 85% 15%, #ffffff, transparent),
+    radial-gradient(1px 1px at 30% 70%, #ffffff, transparent),
+    radial-gradient(2px 2px at 90% 80%, #ffffff, transparent),
+    radial-gradient(1px 1px at 60% 30%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 20% 90%, #ffffff, transparent),
+    radial-gradient(1px 1px at 75% 60%, #ffffff, transparent),
+    radial-gradient(2px 2px at 45% 10%, #ffffff, transparent),
+    radial-gradient(1px 1px at 5% 50%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 95% 40%, #ffffff, transparent),
+    
+    /* Medium distance stars */
+    radial-gradient(0.8px 0.8px at 25% 35%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(0.8px 0.8px at 65% 85%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(0.8px 0.8px at 15% 65%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(0.8px 0.8px at 80% 25%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(0.8px 0.8px at 40% 45%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(0.8px 0.8px at 70% 75%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(0.8px 0.8px at 55% 5%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(0.8px 0.8px at 35% 95%, rgba(255,255,255,0.8), transparent);
+  
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: star-twinkle 8s ease-in-out infinite;
+}
+
+.distant-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    /* Distant tiny stars scattered everywhere */
+    radial-gradient(0.5px 0.5px at 12% 8%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 88% 22%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 33% 88%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 77% 55%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 22% 33%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 66% 77%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 44% 12%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 91% 66%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 8% 91%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 55% 44%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 18% 55%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 82% 18%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 37% 82%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 73% 37%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 26% 73%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 62% 26%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 48% 62%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 84% 48%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 16% 84%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.5px 0.5px at 51% 16%, rgba(255,255,255,0.6), transparent);
+  
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: distant-twinkle 12s ease-in-out infinite reverse;
+}
+
+.extra-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    /* Additional layer of stars for density */
+    radial-gradient(0.6px 0.6px at 13% 42%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 67% 18%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 29% 67%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 84% 93%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 52% 24%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 7% 76%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 93% 51%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 38% 7%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 76% 38%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 24% 51%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 61% 76%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 16% 24%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 89% 7%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 42% 89%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 71% 42%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 34% 16%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 58% 58%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 11% 58%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 87% 71%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(0.6px 0.6px at 45% 34%, rgba(255,255,255,0.7), transparent);
+  
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: extra-star-twinkle 10s ease-in-out infinite;
+}
+
+.micro-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    /* Very tiny stars for maximum density */
+    radial-gradient(0.3px 0.3px at 9% 31%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 74% 9%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 31% 74%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 86% 45%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 19% 86%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 63% 19%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 45% 63%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 91% 31%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 14% 9%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 69% 86%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 36% 45%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 81% 63%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 27% 19%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 58% 81%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 3% 58%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 97% 27%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 52% 3%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 25% 97%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 75% 52%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 41% 25%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 8% 69%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 92% 8%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 47% 92%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 64% 47%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 22% 64%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 78% 22%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 33% 78%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 83% 33%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 17% 83%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.3px 0.3px at 56% 17%, rgba(255,255,255,0.4), transparent);
+  
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: micro-star-twinkle 15s ease-in-out infinite reverse;
+}
+
+/* Procedural Stars - 300 individual stars */
+.procedural-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.procedural-star {
+  position: absolute;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+  border-radius: 50%;
+  animation: procedural-twinkle 5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes procedural-twinkle {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  25% { 
+    opacity: 0.6;
+    transform: scale(0.8);
+  }
+  50% { 
+    opacity: 0.9;
+    transform: scale(1.2);
+  }
+  75% { 
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+}
+
+/* Dense Star Layers - Using repeating patterns for hundreds more stars */
+.dense-star-layer-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(0.4px 0.4px at 50px 50px, rgba(255,255,255,0.5), transparent),
+    radial-gradient(0.3px 0.3px at 80px 120px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.5px 0.5px at 150px 80px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.2px 0.2px at 200px 180px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(0.4px 0.4px at 320px 70px, rgba(255,255,255,0.5), transparent),
+    radial-gradient(0.3px 0.3px at 270px 200px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.5px 0.5px at 100px 300px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.2px 0.2px at 400px 150px, rgba(255,255,255,0.3), transparent);
+  background-repeat: repeat;
+  background-size: 500px 400px;
+  animation: dense-layer-1-drift 20s linear infinite;
+}
+
+.dense-star-layer-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(0.3px 0.3px at 70px 90px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.4px 0.4px at 140px 160px, rgba(255,255,255,0.5), transparent),
+    radial-gradient(0.2px 0.2px at 220px 40px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(0.5px 0.5px at 350px 220px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(0.3px 0.3px at 180px 280px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(0.4px 0.4px at 420px 100px, rgba(255,255,255,0.5), transparent),
+    radial-gradient(0.2px 0.2px at 60px 240px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(0.5px 0.5px at 300px 320px, rgba(255,255,255,0.6), transparent);
+  background-repeat: repeat;
+  background-size: 480px 380px;
+  animation: dense-layer-2-drift 25s linear infinite reverse;
+}
+
+@keyframes dense-layer-1-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-500px, -400px); }
+}
+
+@keyframes dense-layer-2-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-480px, -380px); }
+}
+
+.milky-way {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, 
+      transparent 0%, 
+      rgba(255,255,255,0.02) 20%, 
+      rgba(255,255,255,0.05) 40%, 
+      rgba(255,255,255,0.03) 60%, 
+      rgba(255,255,255,0.01) 80%, 
+      transparent 100%
+    );
+  animation: milky-way-drift 25s ease-in-out infinite alternate;
+}
+
+@keyframes star-twinkle {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  25% { 
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+  50% { 
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  75% { 
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes distant-twinkle {
+  0%, 100% { 
+    opacity: 0.6;
+  }
+  33% { 
+    opacity: 0.3;
+  }
+  66% { 
+    opacity: 0.8;
+  }
+}
+
+@keyframes extra-star-twinkle {
+  0%, 100% { 
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  30% { 
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  70% { 
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes micro-star-twinkle {
+  0%, 100% { 
+    opacity: 0.4;
+  }
+  25% { 
+    opacity: 0.2;
+  }
+  50% { 
+    opacity: 0.6;
+  }
+  75% { 
+    opacity: 0.3;
+  }
+}
+
+@keyframes milky-way-drift {
+  0% { 
+    transform: translateX(-5px) translateY(-2px) rotate(-0.5deg);
+    opacity: 0.3;
+  }
+  100% { 
+    transform: translateX(5px) translateY(2px) rotate(0.5deg);
+    opacity: 0.7;
+  }
+}
+
+.constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  z-index: 5;
+}
+
+.constellation-line {
+  animation: line-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes line-glow {
+  0% { 
+    stroke-width: 1.5;
+    opacity: 0.4;
+  }
+  100% { 
+    stroke-width: 2;
+    opacity: 0.7;
+  }
+}
+
+.constellation-star {
+  animation: star-throb 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.8));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes star-throb {
+  0%, 100% { 
+    filter: drop-shadow(0 0 3px rgba(255,255,255,0.8));
+  }
+  50% { 
+    filter: drop-shadow(0 0 8px rgba(255,255,255,1)) drop-shadow(0 0 12px rgba(173,216,230,0.6));
+  }
+}
+
+.constellation-star:hover {
+  filter: drop-shadow(0 0 10px rgba(255,255,255,1)) drop-shadow(0 0 20px rgba(255,182,193,0.8)) !important;
+  animation: star-hover-pulse 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes star-hover-pulse {
+  0% { 
+    filter: drop-shadow(0 0 10px rgba(255,255,255,1)) drop-shadow(0 0 20px rgba(255,182,193,0.8));
+  }
+  100% { 
+    filter: drop-shadow(0 0 15px rgba(255,255,255,1)) drop-shadow(0 0 30px rgba(255,182,193,1));
+  }
+}
+
+.main-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.star-cluster-title {
+  font-family: 'Great Vibes', 'Dancing Script', cursive;
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  font-weight: 400;
+  text-align: center;
+  color: white;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 182, 193, 0.6),
+    0 0 30px rgba(255, 182, 193, 0.4);
+  position: relative;
+  letter-spacing: 0.1em;
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.star-cluster-title:hover {
+  text-shadow: 
+    0 0 15px rgba(255, 255, 255, 1),
+    0 0 25px rgba(255, 182, 193, 0.8),
+    0 0 35px rgba(255, 182, 193, 0.6),
+    0 0 45px rgba(255, 192, 203, 0.4);
+  transform: translateY(-2px);
+}
+
+.title-letter {
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.title-letter:hover {
+  transform: translateY(-3px) scale(1.1);
+  text-shadow: 
+    0 0 8px #fff, 
+    0 0 16px #fff, 
+    0 0 32px #FFDAB9,
+    0 0 48px #FFB6C1;
+  animation: letter-sparkle 0.6s ease-in-out;
+}
+
+@keyframes letter-sparkle {
+  0%, 100% { 
+    filter: brightness(1);
+  }
+  50% { 
+    filter: brightness(1.5) saturate(1.3);
+  }
+}
+
+@media (max-width: 768px) {
+  .star-cluster-title {
+    font-size: clamp(2rem, 12vw, 4rem);
+    line-height: 1.2;
+  }
+  
+  .constellation {
+    transform: scale(0.8);
+  }
+  
+  .star-field, .distant-stars, .extra-stars, .micro-stars {
+    animation-duration: 6s;
+  }
+  
+  .dense-star-layer-1, .dense-star-layer-2 {
+    animation-duration: 15s;
+  }
+  
+  .milky-way {
+    animation-duration: 20s;
+  }
+
+  .main-content {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .button-container {
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .romantic-button {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    padding: 0.8rem 2rem;
+    min-width: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .star-cluster-title {
+    font-size: clamp(1.5rem, 15vw, 3rem);
+    letter-spacing: 0.05em;
+  }
+  
+  .constellation {
+    transform: scale(0.6);
+  }
+  
+  .procedural-stars {
+    opacity: 0.7;
+  }
+
+  .main-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .button-container {
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .romantic-button {
+    font-size: clamp(0.9rem, 6vw, 1.3rem);
+    padding: 0.7rem 1.5rem;
+    min-width: 200px;
+    letter-spacing: 0.03em;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .star-cluster-title {
+    font-size: clamp(1.8rem, 6vh, 3rem);
+  }
+  
+  .constellation {
+    transform: scale(0.7);
+  }
+
+  .main-content {
+    gap: 2rem;
+  }
+
+  .button-container {
+    gap: 0.8rem;
+  }
+
+  .romantic-button {
+    font-size: clamp(1rem, 3vh, 1.4rem);
+    padding: 0.6rem 1.8rem;
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  .star-field, .distant-stars, .extra-stars, .micro-stars {
+    background-size: 200% 200%;
+  }
+  
+  .dense-star-layer-1 {
+    background-size: 1000px 800px;
+  }
+  
+  .dense-star-layer-2 {
+    background-size: 960px 760px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .main-content {
+    gap: 6rem;
+  }
+  
+  .romantic-button {
+    font-size: 2.2rem;
+    padding: 1.2rem 3rem;
+    min-width: 320px;
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.romantic-button {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 8px 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.main-love-button {
+  background: linear-gradient(135deg, rgba(255, 218, 185, 0.25), rgba(255, 182, 193, 0.15));
+  border: 2px solid rgba(255, 218, 185, 0.4);
+  font-size: 24px;
+  padding: 20px 40px;
+  box-shadow: 0 0 20px rgba(255, 218, 185, 0.3);
+  animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 218, 185, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 218, 185, 0.5);
+  }
+}
+
+.romantic-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  text-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.8),
+    0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.romantic-button:active {
+  transform: translateY(0px);
+  box-shadow: 
+    0 4px 16px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dont-like-button {
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.15), rgba(255, 182, 193, 0.05));
+  border: 1px solid rgba(255, 182, 193, 0.3);
+}
+
+.dont-like-button:hover {
+  background: linear-gradient(135deg, 
+    rgba(255, 182, 193, 0.2) 0%, 
+    rgba(255, 192, 203, 0.1) 100%
+  );
+  border-color: rgba(255, 182, 193, 0.6);
+  text-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.8),
+    0 0 25px rgba(255, 182, 193, 0.6);
+}
+
+.do-like-button {
+  background: linear-gradient(135deg, rgba(255, 218, 185, 0.15), rgba(255, 218, 185, 0.05));
+  border: 1px solid rgba(255, 218, 185, 0.3);
+}
+
+.do-like-button:hover {
+  background: linear-gradient(135deg, 
+    rgba(255, 218, 185, 0.2) 0%, 
+    rgba(255, 228, 196, 0.1) 100%
+  );
+  border-color: rgba(255, 218, 185, 0.6);
+  text-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.8),
+    0 0 25px rgba(255, 218, 185, 0.6);
+}
+
+/* Modal System */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: white;
+  margin: 0 0 20px 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.modal-body p {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.modal-button {
+  font-family: 'Great Vibes', cursive;
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.modal-button.yes {
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(255, 182, 193, 0.1));
+  border: 1px solid rgba(255, 182, 193, 0.5);
+}
+
+.modal-button.yes:hover {
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.4), rgba(255, 182, 193, 0.2));
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+}
+
+.modal-button.no {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal-button.no:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.modal-button.close {
+  background: linear-gradient(135deg, rgba(255, 218, 185, 0.3), rgba(255, 218, 185, 0.1));
+  border: 1px solid rgba(255, 218, 185, 0.5);
+}
+
+.modal-button.close:hover {
+  background: linear-gradient(135deg, rgba(255, 218, 185, 0.4), rgba(255, 218, 185, 0.2));
+  box-shadow: 0 0 15px rgba(255, 218, 185, 0.6);
+}
+
+/* Responsive modal */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .modal-header h3 {
+    font-size: 24px;
+  }
+  
+  .modal-body p {
+    font-size: 16px;
+  }
+  
+  .modal-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .modal-button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Like List Modal */
+.like-list-content {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  max-height: 80vh;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+.like-list-header h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 32px;
+  color: white;
+  margin: 0 0 30px 0;
+  text-shadow: 0 0 15px rgba(255, 218, 185, 0.8);
+}
+
+.like-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.like-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: left;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, rgba(255, 218, 185, 0.1), rgba(255, 218, 185, 0.05));
+  border: 1px solid rgba(255, 218, 185, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(255, 218, 185, 0.1);
+  transition: all 0.3s ease;
+}
+
+.like-item:hover {
+  background: linear-gradient(135deg, rgba(255, 218, 185, 0.15), rgba(255, 218, 185, 0.08));
+  border-color: rgba(255, 218, 185, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 218, 185, 0.2);
+  transform: translateY(-2px);
+}
+
+.modal-button.hell-yeah {
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.3), rgba(255, 20, 147, 0.1));
+  border: 1px solid rgba(255, 20, 147, 0.5);
+  font-size: 20px;
+  padding: 15px 30px;
+  animation: excited-pulse 2s ease-in-out infinite;
+}
+
+.modal-button.hell-yeah:hover {
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.4), rgba(255, 20, 147, 0.2));
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+}
+
+@keyframes excited-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 20, 147, 0.7);
+  }
+}
+
+/* Scrollbar styling for like list */
+.like-list-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.like-list-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.like-list-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgba(255, 218, 185, 0.5), rgba(255, 218, 185, 0.3));
+  border-radius: 10px;
+}
+
+.like-list-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgba(255, 218, 185, 0.7), rgba(255, 218, 185, 0.5));
+}
+
+/* Responsive design for like list */
+@media (max-width: 768px) {
+  .like-list-content {
+    padding: 20px;
+    margin: 20px;
+    max-height: 85vh;
+  }
+  
+  .like-list-header h3 {
+    font-size: 26px;
+  }
+  
+  .like-item {
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+  
+  .modal-button.hell-yeah {
+    font-size: 18px;
+    padding: 12px 25px;
+  }
+}
+
+.scrollable-list {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.naughty-warning {
+  margin-top: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.15), rgba(255, 20, 147, 0.1));
+  border: 1px solid rgba(255, 69, 0, 0.3);
+  border-radius: 15px;
+  text-align: center;
+}
+
+.naughty-warning p {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+.naughty-warning p:first-child {
+  font-size: 20px;
+  color: #ff4500;
+  text-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
+}
+
+.modal-button.cant-wait {
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.4), rgba(255, 20, 147, 0.2));
+  border: 1px solid rgba(255, 69, 0, 0.6);
+  font-size: 20px;
+  padding: 15px 30px;
+  animation: fire-pulse 1.5s ease-in-out infinite;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.modal-button.cant-wait:hover {
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.5), rgba(255, 20, 147, 0.3));
+  box-shadow: 0 0 25px rgba(255, 69, 0, 0.8);
+}
+
+@keyframes fire-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 69, 0, 0.8), 0 0 40px rgba(255, 20, 147, 0.4);
+  }
+}
+
+/* Custom scrollbar for second list */
+.scrollable-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.scrollable-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.5), rgba(255, 20, 147, 0.3));
+  border-radius: 10px;
+}
+
+.scrollable-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.7), rgba(255, 20, 147, 0.5));
+}
+
+/* Naughty List Styling */
+.naughty-item {
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.15), rgba(255, 20, 147, 0.1));
+  border: 1px solid rgba(255, 69, 0, 0.3);
+}
+
+.naughty-item:hover {
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(255, 20, 147, 0.15));
+  border-color: rgba(255, 69, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 69, 0, 0.3);
+}
+
+.honorable-mentions {
+  margin-top: 30px;
+  padding: 25px;
+  background: linear-gradient(135deg, rgba(220, 20, 60, 0.2), rgba(255, 20, 147, 0.15));
+  border: 2px solid rgba(220, 20, 60, 0.4);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.honorable-mentions h4 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  color: #dc143c;
+  margin: 0 0 20px 0;
+  text-shadow: 0 0 10px rgba(220, 20, 60, 0.8);
+}
+
+.honorable-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  padding: 12px 20px;
+  margin: 10px 0;
+  background: linear-gradient(135deg, rgba(220, 20, 60, 0.15), rgba(255, 20, 147, 0.1));
+  border: 1px solid rgba(220, 20, 60, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(220, 20, 60, 0.2);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.honorable-item:hover {
+  background: linear-gradient(135deg, rgba(220, 20, 60, 0.25), rgba(255, 20, 147, 0.15));
+  border-color: rgba(220, 20, 60, 0.5);
+  box-shadow: 0 8px 25px rgba(220, 20, 60, 0.3);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.modal-button.finish-naughty {
+  background: linear-gradient(135deg, rgba(220, 20, 60, 0.4), rgba(255, 20, 147, 0.3));
+  border: 2px solid rgba(220, 20, 60, 0.6);
+  font-size: 22px;
+  padding: 18px 35px;
+  animation: steamy-pulse 1.2s ease-in-out infinite;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+}
+
+.modal-button.finish-naughty:hover {
+  background: linear-gradient(135deg, rgba(220, 20, 60, 0.5), rgba(255, 20, 147, 0.4));
+  box-shadow: 0 0 30px rgba(220, 20, 60, 0.8), 0 0 50px rgba(255, 20, 147, 0.5);
+}
+
+@keyframes steamy-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(220, 20, 60, 0.9), 0 0 45px rgba(255, 20, 147, 0.6);
+    transform: scale(1.02);
+  }
+}
+
+/* Special header styling for naughty list */
+.like-list-header h3:contains("naughty") {
+  color: #ff4500;
+  text-shadow: 0 0 20px rgba(255, 69, 0, 0.8), 0 0 30px rgba(220, 20, 60, 0.6);
+}
+
+/* But Button Styling */
+.modal-button.but-button {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(160, 82, 45, 0.2));
+  border: 1px solid rgba(139, 69, 19, 0.5);
+  font-size: 20px;
+  padding: 15px 30px;
+  color: #f4e4bc;
+  text-shadow: 0 0 10px rgba(244, 228, 188, 0.8);
+}
+
+.modal-button.but-button:hover {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.4), rgba(160, 82, 45, 0.3));
+  box-shadow: 0 0 20px rgba(139, 69, 19, 0.6);
+}
+
+/* Love Letter Styling */
+.love-letter-container {
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  perspective: 1000px;
+}
+
+.love-letter-paper {
+  background: #fffef7;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  position: relative;
+  overflow-y: auto;
+  max-height: 85vh;
+}
+
+/* Remove the before pseudo-element */
+.love-letter-paper::before {
+  display: none;
+}
+
+.letter-content {
+  font-family: 'Georgia', serif;
+  line-height: 1.8;
+  color: #333;
+  font-size: 16px;
+}
+
+.letter-content p {
+  margin: 20px 0;
+  text-align: justify;
+  text-indent: 2em;
+}
+
+.letter-content p:first-child {
+  text-indent: 0;
+  font-style: italic;
+  color: #555;
+  font-size: 18px;
+}
+
+.letter-content strong {
+  color: #222;
+  font-weight: bold;
+}
+
+.signature {
+  text-align: right;
+  margin-top: 40px !important;
+  font-style: italic;
+  color: #444 !important;
+  text-indent: 0 !important;
+  border-top: 2px solid #ddd;
+  padding-top: 20px;
+  font-size: 18px;
+}
+
+.spotify-link {
+  display: inline-block;
+  color: #1db954;
+  text-decoration: none;
+  font-family: 'Great Vibes', cursive;
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 8px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(29, 185, 84, 0.1), rgba(29, 185, 84, 0.05));
+  border: 1px solid rgba(29, 185, 84, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.spotify-link:hover {
+  color: #1ed760;
+  background: linear-gradient(135deg, rgba(29, 185, 84, 0.2), rgba(29, 185, 84, 0.1));
+  border-color: rgba(29, 185, 84, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(29, 185, 84, 0.3);
+}
+
+.spotify-link:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(29, 185, 84, 0.2);
+}
+
+/* Scrollbar for love letter */
+.love-letter-paper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.love-letter-paper::-webkit-scrollbar-track {
+  background: rgba(139, 69, 19, 0.1);
+  border-radius: 10px;
+}
+
+.love-letter-paper::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.5), rgba(160, 82, 45, 0.3));
+  border-radius: 10px;
+}
+
+.love-letter-paper::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.7), rgba(160, 82, 45, 0.5));
+}
+
+/* Responsive design for love letter */
+@media (max-width: 768px) {
+  .love-letter-container {
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  .love-letter-paper {
+    padding: 25px;
+    font-size: 14px;
+  }
+  
+  .letter-header h3 {
+    font-size: 26px;
+  }
+  
+  .letter-content {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* Polaroid Photos */
+.polaroid {
+  position: absolute;
+  width: 120px;
+  height: 140px;
+  background: #fff;
+  padding: 8px 8px 20px 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.polaroid:hover {
+  transform: scale(1.1) !important;
+  z-index: 10;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+}
+
+.polaroid-photo {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(135deg, #ffeaa7, #fab1a0, #fd79a8, #a29bfe);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 1px;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.polaroid-photo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(0.5px);
+}
+
+.polaroid-label {
+  font-family: 'Great Vibes', cursive;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  line-height: 1.2;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Individual polaroid positions */
+.polaroid-1 {
+  top: 10%;
+  left: 5%;
+  transform: rotate(-15deg);
+}
+
+.polaroid-2 {
+  top: 15%;
+  right: 8%;
+  transform: rotate(25deg);
+}
+
+.polaroid-3 {
+  bottom: 20%;
+  left: 3%;
+  transform: rotate(12deg);
+}
+
+.polaroid-4 {
+  bottom: 25%;
+  right: 12%;
+  transform: rotate(-8deg);
+}
+
+.polaroid-5 {
+  top: 50%;
+  left: 2%;
+  transform: rotate(18deg);
+}
+
+/* Responsive polaroid positioning */
+@media (max-width: 768px) {
+  .polaroid {
+    width: 100px;
+    height: 120px;
+    padding: 6px 6px 16px 6px;
+  }
+  
+  .polaroid-photo {
+    height: 70px;
+  }
+  
+  .polaroid-photo::before {
+    font-size: 20px;
+  }
+  
+  .polaroid-label {
+    font-size: 12px;
+    height: 28px;
+  }
+  
+  .polaroid-1 {
+    top: 8%;
+    left: 2%;
+  }
+  
+  .polaroid-2 {
+    top: 12%;
+    right: 2%;
+  }
+  
+  .polaroid-3 {
+    bottom: 15%;
+    left: 1%;
+  }
+  
+  .polaroid-4 {
+    bottom: 20%;
+    right: 5%;
+  }
+  
+  .polaroid-5 {
+    top: 45%;
+    left: 1%;
+  }
+}
+
+/* Mobile Responsiveness - Enhanced */
+@media (max-width: 768px) {
+  /* Main container adjustments */
+  .stargazing-container {
+    padding: 10px;
+    min-height: 100vh;
+  }
+
+  .main-content {
+    padding: 20px 10px;
+    max-width: 100%;
+  }
+
+  /* Title responsiveness */
+  .star-cluster-title {
+    font-size: clamp(2rem, 8vw, 3.5rem) !important;
+    margin-bottom: 30px !important;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .title-letter {
+    display: inline-block;
+    margin: 0 2px;
+  }
+
+  /* Button container adjustments */
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* Button responsiveness */
+  .romantic-button {
+    width: 100% !important;
+    max-width: 280px;
+    padding: 16px 20px !important;
+    font-size: 18px !important;
+    text-align: center;
+    margin: 8px 0;
+  }
+
+  .main-love-button {
+    font-size: 20px !important;
+    padding: 18px 25px !important;
+  }
+
+  /* Modal overlay adjustments */
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  /* Regular modal content */
+  .modal-content {
+    padding: 20px;
+    margin: 10px;
+    max-width: 95%;
+    width: 95%;
+  }
+
+  .modal-header h3 {
+    font-size: 22px;
+  }
+
+  .modal-body p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .modal-button {
+    width: 100%;
+    max-width: 220px;
+    font-size: 16px !important;
+    padding: 12px 20px !important;
+  }
+
+  /* Like list modal adjustments */
+  .like-list-content {
+    padding: 20px 15px;
+    margin: 10px;
+    max-height: 90vh;
+    width: 95%;
+    max-width: 95%;
+  }
+
+  .like-list-header h3 {
+    font-size: 24px;
+  }
+
+  .like-list-items {
+    gap: 12px;
+  }
+
+  .like-item {
+    font-size: 16px !important;
+    padding: 12px 15px !important;
+    line-height: 1.5;
+  }
+
+  .scrollable-list {
+    max-height: 350px;
+    padding-right: 5px;
+  }
+
+  /* Naughty warning adjustments */
+  .naughty-warning {
+    margin-top: 20px;
+    padding: 15px;
+  }
+
+  .naughty-warning p {
+    font-size: 16px !important;
+  }
+
+  .naughty-warning p:first-child {
+    font-size: 18px !important;
+  }
+
+  /* Honorable mentions adjustments */
+  .honorable-mentions {
+    margin-top: 20px;
+    padding: 15px;
+  }
+
+  .honorable-mentions h4 {
+    font-size: 20px;
+  }
+
+  .honorable-item {
+    font-size: 16px !important;
+    padding: 10px 15px !important;
+  }
+
+  /* Love letter mobile adjustments */
+  .love-letter-container {
+    width: 95%;
+    max-height: 90vh;
+    margin: 10px auto;
+  }
+
+  .love-letter-paper {
+    padding: 20px 15px;
+    max-height: 85vh;
+    font-size: 14px;
+  }
+
+  .letter-content {
+    font-size: 14px !important;
+    line-height: 1.6;
+  }
+
+  .letter-content p {
+    margin: 15px 0;
+    text-indent: 1.5em;
+  }
+
+  .letter-content p:first-child {
+    font-size: 16px;
+  }
+
+  .signature {
+    font-size: 16px !important;
+    margin-top: 30px !important;
+    padding-top: 15px;
+  }
+
+  .spotify-link {
+    font-size: 18px !important;
+    padding: 4px 8px !important;
+  }
+
+  /* Polaroid mobile adjustments */
+  .polaroid {
+    width: 90px !important;
+    height: 110px !important;
+    padding: 5px 5px 14px 5px !important;
+  }
+
+  .polaroid-photo {
+    height: 65px !important;
+  }
+
+  .polaroid-label {
+    font-size: 11px !important;
+    height: 26px !important;
+    line-height: 1.1;
+  }
+
+  /* Better mobile positioning for polaroids */
+  .polaroid-1 {
+    top: 5% !important;
+    left: 1% !important;
+  }
+
+  .polaroid-2 {
+    top: 8% !important;
+    right: 1% !important;
+  }
+
+  .polaroid-3 {
+    bottom: 12% !important;
+    left: 0.5% !important;
+  }
+
+  .polaroid-4 {
+    bottom: 15% !important;
+    right: 2% !important;
+  }
+
+  .polaroid-5 {
+    top: 40% !important;
+    left: 0.5% !important;
+  }
+
+  /* Cancer constellation mobile adjustments */
+  .cancer-constellation {
+    transform: scale(0.8);
+  }
+
+  /* Star field adjustments for mobile */
+  .star-field,
+  .distant-stars,
+  .extra-stars,
+  .micro-stars,
+  .dense-star-layer-1,
+  .dense-star-layer-2 {
+    animation-duration: 4s; /* Slower animation for mobile performance */
+  }
+
+  /* Touch-friendly interactions */
+  .romantic-button:active,
+  .modal-button:active,
+  .polaroid:active {
+    transform: scale(0.95) !important;
+  }
+
+  /* Improve scrollbar for mobile */
+  .scrollable-list::-webkit-scrollbar,
+  .like-list-content::-webkit-scrollbar,
+  .love-letter-paper::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Hide scrollbars on very small screens */
+  @media (max-width: 480px) {
+    .scrollable-list::-webkit-scrollbar,
+    .like-list-content::-webkit-scrollbar,
+    .love-letter-paper::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .scrollable-list,
+    .like-list-content,
+    .love-letter-paper {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+  }
+}
+
+/* Extra small screens (phones in portrait) */
+@media (max-width: 480px) {
+  .star-cluster-title {
+    font-size: clamp(1.8rem, 9vw, 2.8rem) !important;
+    margin-bottom: 25px !important;
+  }
+
+  .romantic-button {
+    font-size: 16px !important;
+    padding: 14px 18px !important;
+  }
+
+  .main-love-button {
+    font-size: 18px !important;
+    padding: 16px 22px !important;
+  }
+
+  .like-list-content {
+    padding: 15px 10px;
+  }
+
+  .love-letter-paper {
+    padding: 15px 10px;
+  }
+
+  .letter-content {
+    font-size: 13px !important;
+  }
+
+  .letter-content p:first-child {
+    font-size: 15px;
+  }
+
+  .polaroid {
+    width: 80px !important;
+    height: 100px !important;
+  }
+
+  .polaroid-photo {
+    height: 60px !important;
+  }
+
+  .polaroid-label {
+    font-size: 10px !important;
+    height: 24px !important;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .main-content {
+    padding: 15px 10px;
+  }
+
+  .star-cluster-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+    margin-bottom: 20px !important;
+  }
+
+  .like-list-content,
+  .love-letter-container {
+    max-height: 85vh;
+  }
+
+  .polaroid {
+    width: 70px !important;
+    height: 85px !important;
+  }
+
+  .polaroid-photo {
+    height: 50px !important;
+  }
+
+  .polaroid-label {
+    font-size: 9px !important;
+    height: 20px !important;
+  }
+}
+
