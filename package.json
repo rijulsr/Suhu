@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://rijulpp.github.io/suhu-romantic-website",
+  "homepage": "https://rijulsr.github.io/Suhu",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
